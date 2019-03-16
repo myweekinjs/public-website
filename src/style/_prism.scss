@@ -1,0 +1,30 @@
+.gatsby-highlight {
+  margin: 2rem 0;
+  > pre {
+    background: $content-background;
+    padding: 2rem;
+    margin: 0;
+    border-bottom: 3px solid $border-color;
+    font-size: 1rem;
+    > code {
+      color: $content-color;
+    }
+  }
+  &[data-language="javascript"] {
+    position: relative;
+    &:after {
+      content: 'JS';
+      display: block;
+      color: $primary-background;
+      background: $syntax-js;
+      font-family: $heading-font-family;
+      text-transform: uppercase;
+      font-weight: $extra-bold;
+      position: absolute;
+      top: 0;
+      right: 20px;
+      padding: 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+}
