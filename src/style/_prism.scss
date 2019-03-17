@@ -10,13 +10,13 @@
       color: $content-color;
     }
   }
-  &[data-language="javascript"] {
+  &[data-language] {
     position: relative;
     &:after {
-      content: 'JS';
+      content: '';
       display: block;
       color: $primary-background;
-      background: $syntax-js;
+      background: $primary-color;
       font-family: $heading-font-family;
       text-transform: uppercase;
       font-weight: $extra-bold;
@@ -26,5 +26,26 @@
       padding: 0.75rem;
       font-size: 0.875rem;
     }
+  }
+  &[data-language="javascript"] {
+    &:after {
+      content: 'JS';
+      background: $syntax-js;
+    }
+  }
+  &[data-language="html"] {
+    &:after {
+      content: 'HTML';
+      background: $syntax-html;
+    }
+  }
+}
+
+.blog-content {
+  p > code {
+    background: $border-color;
+    padding: .1rem .5rem;
+    color: $content-color;
+    font-family: $base-font-family;
   }
 }
