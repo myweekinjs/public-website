@@ -10,7 +10,7 @@ const Template = ({
   
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
+      <SEO title={post.frontmatter.title} description={post.excerpt} />
       <h1>{post.frontmatter.title}</h1>
       <ul className="meta">
         <li>{post.frontmatter.date}</li>
@@ -26,6 +26,7 @@ export default Template
 export const pageQuery = graphql`
   query BlogPostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
+      excerpt(pruneLength: 150)
       html
       timeToRead
       frontmatter {
