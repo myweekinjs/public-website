@@ -41,7 +41,7 @@ I bought a Google home which is currently doing nothing. I want to create some a
 
 ### 3. Intersection Observer Plugin
 
-This could already exist but we'll see. This'll essentially be a plugin which will add classes to the body based on your position on the page. I want it have a very simple API.
+This could already exist but we'll see. This'll essentially be a plugin which will add classes to the body based on your position on the page. I want it to have a very simple API.
 
 ```javascript
 import IOP from 'iop'
