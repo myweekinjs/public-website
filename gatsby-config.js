@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `My Week in JS`,
+    title: `#myweekinjs`,
     description: `Personal blog of a Web Developer with a passion for writing pointless apps in JavaScript. This is what he played with this week.`,
-    author: `@codingkid`,
+    author: `@hurricane_int`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
