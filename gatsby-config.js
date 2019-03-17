@@ -28,8 +28,8 @@ module.exports = {
         name: `myweekinjs`,
         short_name: `myweekinjs`,
         start_url: `/`,
-        background_color: `#BAF2D8`,
-        theme_color: `#BAF2D8`,
+        background_color: `#03CEA4`,
+        theme_color: `#03CEA4`,
         display: `minimal-ui`,
         icon: `src/images/js-icon.png`, // This path is relative to the root of the site.
       },
