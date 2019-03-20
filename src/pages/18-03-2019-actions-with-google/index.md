@@ -6,6 +6,8 @@ title: "Google actions in Actions"
 
 This week I set out to great a app to keep track of different life stats using Google Actions. This would be the first time I am working with the Google Actions SDK which is both exciting and nerve racking!
 
+> The code can be found on [Github](https://github.com/myweekinjs/gactions-life-stats)
+
 ## The Goal
 
 The goal is simple, create a small set of actions that will increase simple stats of my day to day life. For example; Hey Google, add **1** to **coffee**.
@@ -48,3 +50,16 @@ After redeploying my Cloud Functions to my Firebase projects I was able to have 
 - **Google**: You want to add 2 to your total
 
 ### Progress!!
+
+The next step was to take the request and save it into the Firebase Realtime Database to be used later on. This turned out to be easier than I expected. The first step was to authorise my application, which I did through the `firebase-admin` package and generating a SDK key through the Firebase Console interface. After this I was able to easily write a normal push function to add the number to the database.
+
+```javascript
+// Authorise code
+app.intent('Add Coffee', ({ coffees }) => {
+  admin.database().ref('/coffee').push({
+    coffee: coffees
+  })
+  .then(/** Success */)
+  .catch(/** Fail */)
+})
+```
