@@ -63,3 +63,12 @@ app.intent('Add Coffee', ({ coffees }) => {
   .catch(/** Fail */)
 })
 ```
+
+Once this worked I made a small change to the `push` object to add more "metadata" to the values in the database for when I finally add these stats to the website for everyone to see. The first thing was to store the number as a `int` instead of a `string`, I also added a timestamp value to the object which I want to use to sort my coffee consumption by day.
+
+```javascript
+admin.database().ref('/coffee').push({
+  coffee: parseInt(coffees),
+  timestamp: admin.database.ServerValue.TIMESTAMP
+})
+```
