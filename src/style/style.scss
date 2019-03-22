@@ -71,6 +71,23 @@ header {
   }
 }
 
+blockquote {
+  margin: 2rem 0;
+  padding: 2rem;
+  border-left: 3px solid $primary-color;
+  background: $content-background;
+  font-size: 20px;
+  font-style: italic;
+  > *:first-child {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  > *:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
+
 main {
   h1 {
     margin: 0;
@@ -102,22 +119,6 @@ main {
     > *:last-child {
       margin-bottom: 0;
       padding-bottom: 0;
-    }
-    blockquote {
-      margin: 2rem 0;
-      padding: 2rem;
-      border-left: 3px solid $primary-color;
-      background: $content-background;
-      font-size: 20px;
-      font-style: italic;
-      > *:first-child {
-        margin-top: 0;
-        padding-top: 0;
-      }
-      > *:last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
     }
   }
 }
