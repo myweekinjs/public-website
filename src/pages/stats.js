@@ -3,6 +3,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Firebase from '../firebase'
 import { Link } from 'gatsby'
+import Coffee from '../components/Coffee'
+import Loading from '../components/Loading'
 
 const StatsPage = () => {
   const [loading, setLoading] = useState(true)
@@ -23,10 +25,6 @@ const StatsPage = () => {
     }
   }, [])
 
-  const renderTotalCoffees = () => {
-    return Object.keys(coffees).reduce((acc, cur) => ( acc + coffees[cur].coffee ), 0)
-  }
-
   return (
     <Layout>
       <SEO title="Stats" keywords={[`gatsby`, `application`, `react`, `firebase`, `statistics`]} />
@@ -34,7 +32,13 @@ const StatsPage = () => {
       <blockquote>
         <p>Read related article: <Link to="/actions-with-google">Google actions in Actions</Link></p>
       </blockquote>
-      { loading ? 'Loading...' : renderTotalCoffees() }
+      {
+        loading ? (
+          <Loading />
+        ) : (
+          <Coffee coffees={coffees === null ? 0 : coffees} />
+        )
+      }
     </Layout>
   )
 }
