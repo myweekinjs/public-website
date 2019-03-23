@@ -7,10 +7,17 @@ const Template = ({
   data
 }) => {
   const { markdownRemark: post } = data
+  const { frontmatter: {
+    keywords
+  } } = post
   
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.excerpt} />
+      <SEO
+        title={post.frontmatter.title}
+        description={post.excerpt}
+        keywords={keywords ? keywords.split(',') : []}
+      />
       <h1>{post.frontmatter.title}</h1>
       <ul className="meta">
         <li>{post.frontmatter.date}</li>
@@ -33,6 +40,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         path
         title
+        keywords
       }
     }
   }
