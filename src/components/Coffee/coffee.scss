@@ -1,0 +1,11 @@
+@import "../../style/variable";
+
+.coffee-data {
+  margin-bottom: 3rem;
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $border-color;
+  }
+}
