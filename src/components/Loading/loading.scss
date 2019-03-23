@@ -1,0 +1,11 @@
+@import "../../style/variable";
+
+.loader {
+  margin: 0 0 2em;
+  margin: 0 auto 1em;
+}
+
+svg path,
+svg rect{
+  fill: $primary-color;
+}
