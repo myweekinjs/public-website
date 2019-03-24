@@ -35,7 +35,7 @@ function SEO({ description, lang, meta, keywords, title }) {
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       link={[
-        { href: 'https://fonts.googleapis.com/css?family=Poppins:800|Zilla+Slab:400,700', rel: 'stylesheet' }
+        { href: 'https://fonts.googleapis.com/css?family=Poppins:800|Merriweather:400,700', rel: 'stylesheet' }
       ]}
       meta={[
         {
