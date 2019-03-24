@@ -9,19 +9,28 @@ const CoffeeEmoji = () => {
 
 const Coffee = ({ coffees }) => {
   const renderTotalCoffees = (coffees) => {
+    // Uses a reduce method to count up from 0 and add the current coffee value to the accumulator
     return Object.keys(coffees).reduce((acc, cur) => ( acc + coffees[cur].coffee ), 0)
   }
 
   const renderTodayTotal = () => {
+    // Gets today date as a date string
     const today = new Date().toDateString();
+    // Filter through all the coffee objects
     const todayCoffees = Object.keys(coffees).filter((key) => {
+      // get the timestamp value as a date string
       let timestamp = new Date(coffees[key].timestamp).toDateString()
+      // return key if it is today
       return timestamp === today
-    }).map((key) => coffees[key])
+    })
+    // Map through the filtered keys and return the coffee object
+    .map((key) => coffees[key])
 
+    // Return the total number of coffees for the current day
     return renderTotalCoffees(todayCoffees)
   }
 
+  // Render a number of coffee cup emojis
   const renderCoffeeCups = (num) => {
     const cups = []
     for (let i = 0; i < num; i++) {
