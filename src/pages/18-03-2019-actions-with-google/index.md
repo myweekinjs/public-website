@@ -15,7 +15,7 @@ The goal is simple, create a small set of actions that will increase simple stat
 
 ## Approach #1
 
-[Actions on Google](https://developers.google.com/actions/) offer two ways of creating interactions with the Google Assistant. These being; DialogFlow and Actions SDK. My first approached involved using the Actions SDK as it made the most sense. Define your action; *add {number} to coffees*. Retrieve the number and then plus the number to my total.
+[Actions on Google](https://developers.google.com/actions/) offer two ways of creating interactions with the Google Assistant. These being; DialogFlow and Actions SDK. My first approach involved using the Actions SDK as it made the most sense. Define your action; *add {number} to coffees*. Retrieve the number and then plus the number to my total.
 
 ```javascript
 // Excerpt
@@ -29,13 +29,13 @@ However, after getting to this point, I read [here](https://developers.google.co
 
 ## Approach #2
 
-Approach two involves using DialogFlow to setup *intents* and writing Firebase Cloud Functions to fulfil those intents, very similar to the Actions SDK. After setting up my intent with a number of Training Phrases;
+Approach two involves using DialogFlow to setup *intents* and writing Firebase Cloud Functions to fulfil those *intents*, very similar to the Actions SDK. After setting up my *intent* with a number of Training Phrases;
 
 1. add **1** to coffees
 2. I had **5** coffees today
 3. etc
 
-The intent learnt that I want to pull out the number in each of the phrases and to save it into a `coffees` variable, that I can use in my Cloud Function.
+The *intent* learnt that I want to pull out the number in each of the phrases and to save it into a `coffees` variable, that I can use in my Cloud Function.
 
 ```javascript
 app.intent('Add Coffee', (conv, { coffees }) => {
@@ -130,6 +130,6 @@ The `useEffect` method will listen to changes to the realtime database and once 
 
 ## Wrapping up
 
-After this, I did some additional styling changes to the Stats page to make it look good. Hopefully, this article was a good insight for what it is like working with Google Actions. I had an absolute blast working with the technology and getting everything to talk to each other (I think that counts as a pun). If you have any question about the code or process please reach out to me over [Twitter](https://twitter.com/hurricane_int), I'd love to keep talking about this and improving my code.
+After this, I did some additional styling changes to the Stats page to make it look good. Hopefully, this article was a good insight for what it is like working with Google Actions. I had an absolute blast working with the technology and getting everything to talk to each other (I think that counts as a pun). If you have any questions about the code or process please reach out to me over [Twitter](https://twitter.com/hurricane_int), I'd love to keep talking about this and improving my code.
 
 ### 👋 until next time!
