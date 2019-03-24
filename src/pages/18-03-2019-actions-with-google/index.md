@@ -119,7 +119,7 @@ const StatsPage = () => {
 }
 ```
 
-The `useEffect` method will listen to changes to the realtime database and once a change is detected it will update the coffee `state` and the component will re-render to reflect the new total. Unfortunately, the data doesn't change that often to warrant the constant checking but if you decide the setup a similar project, use this approach and watch the magic happen.
+The `useEffect` method will listen to changes to the realtime database and once a change is detected it will update the coffee `state` and the component will re-render to reflect the new total. Unfortunately, the data doesn't change that often to warrant the constant checking but if you decide to setup a similar project, use this approach and watch the magic happen.
 
 ## What I learnt
 
