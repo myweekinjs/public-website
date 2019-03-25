@@ -3,6 +3,10 @@ path: "/actions-with-google"
 date: 2019-03-25T12:00:00.000Z
 title: "Google actions in Actions"
 keywords: google actions,react hooks,intent creation,dialogflow
+resources:
+- Creating Actions %% https://developers.google.com/actions/dialogflow/project-agent
+- Use Effect Hook %% https://reactjs.org/docs/hooks-effect.html
+- Admin SDK %% https://firebase.google.com/docs/database/admin/start
 ---
 
 This week I set out to create an app to keep track of different life stats using Google Actions. This would be the first time I am working with the Google Actions SDK which is both exciting and nerve racking!
