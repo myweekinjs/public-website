@@ -1,0 +1,16 @@
+@import "../../style/variable";
+
+.resource {
+  padding: 2rem;
+  background: $content-background;
+  display: block;
+  color: $white;
+  margin-bottom: 10px;
+  border-bottom: 2px solid $border-color;
+}
+
+.resource-list {
+  .resource:last-child {
+    margin-bottom: 0;
+  }
+}
