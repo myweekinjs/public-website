@@ -9,21 +9,24 @@ import Loading from '../components/Loading'
 const StatsPage = () => {
   const [loading, setLoading] = useState(true)
   const [coffees, setCoffees] = useState(null)
-  const firebase = new Firebase()
-  const coffeeRef = firebase.database.ref('/coffee')
 
-  useEffect(() => {
-    function updateWithSnapshot(snapshot) {
-      setCoffees(snapshot.val())
-      setLoading(false)
-    }
+  if (typeof window !== 'undefined') {
+    const firebase = new Firebase()
+    const coffeeRef = firebase.database.ref('/coffee')
 
-    coffeeRef.on('value', (snap) => updateWithSnapshot(snap))
-    
-    return () => {
-      coffeeRef.off()
-    }
-  }, [])
+    useEffect(() => {
+      function updateWithSnapshot(snapshot) {
+        setCoffees(snapshot.val())
+        setLoading(false)
+      }
+  
+      coffeeRef.on('value', (snap) => updateWithSnapshot(snap))
+      
+      return () => {
+        coffeeRef.off()
+      }
+    }, [])
+  }
 
   return (
     <Layout>

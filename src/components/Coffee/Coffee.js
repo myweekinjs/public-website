@@ -43,7 +43,7 @@ const Coffee = ({ coffees }) => {
   return (
     <>
       <div className="coffee-data">
-        <h3>Totals Total: { renderTodayTotal() }</h3>
+        <h3>Todays Total: { renderTodayTotal() }</h3>
         <div className="coffee-list">
           { renderCoffeeCups(renderTodayTotal()) }
         </div>
