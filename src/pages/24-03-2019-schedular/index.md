@@ -9,17 +9,17 @@ resources:
 - datetime-local default value %% https://stackoverflow.com/questions/24468518/html5-input-datetime-local-default-value-of-today-and-current-time
 ---
 
-This week I wanted to build a site where I am able to schedule twitter posts for different times to help increase the interactivity with my tweets. Now, I am sure this already exists but I want to give it a go with Firebase, Heroku hacks (more on that in a second) and Nextjs.
+This week I decided to build a "Twitter post scheduler" to try and reach a different audience by tweeting when I'd normally be asleep. Now, I am sure this already exists but I want to give it a go with Firebase, Heroku hacks (more on that in a second) and Nextjs.
 
 > The code can be found on [Github](https://github.com/myweekinjs/post-schedular)
 
 ## Discovery
 
-Initially, I wanted to use Cloud Scheduler for this, which is essentially Google's version of CRON jobs. However, that cost money and I ain't about that paying life... coffee is too expensive for that. So overcoming this was the first problem. Luckily for me, I build a twitter bot in early 2018 that I launched on Heroku on a free dino. The bot is set to do something every 30 minutes meaning it is never put to sleep. **HACKERMAN!** (I wish I had gifs in my posts) I am planning on using a similar approach here, although it might not be as accurate as CRON jobs, I really don't need it to be.
+Initially, I wanted to use Cloud Scheduler for this, which is essentially Google's version of CRON jobs. However, that costs money and I ain't about that paying life... coffee is too expensive for that. So overcoming this was the first problem. Luckily for me, I build a twitter bot in early 2018 that I launched on Heroku on a free dino. The bot is set to do something every 30 minutes meaning it is never put to sleep. **HACKERMAN!** (I wish I had gifs in my posts) I am planning on using a similar approach here, although it might not be as accurate as CRON jobs, I really don't need it to be.
 
 ## Setup
 
-This project is split into two parts; `cronish` and `fe`. `cronish` is what will be deployed on Heroku and will handle all the twitter posting. `fe` is a nextjs app that will give me a "self-hosted" front end app that I can use to schedule my posts. The posts will be added to a Firebase database. When `cronish` runs, it will pull in the data and filter through for posts where the date is in the past, and then post them. Not very elegant but hey, I have less than a week for build this. I also decided to use `react-bootstrap` for all the UI work in order to save some time.
+This project is split into two parts; `cronish` and `fe`. `cronish` is what will be deployed on Heroku and will handle all the twitter posting. `fe` is a nextjs app that will give me a "self-hosted" front end app that I can use to schedule my posts. The posts will be added to a Firebase database. When `cronish` runs, it will pull in the data and filter through the posts for where the date is in the past, and then post them. Not very elegant but hey, I have less than a week to build this. I also decided to use `react-bootstrap` for all the UI work in order to save some time.
 
 ## FE
 
@@ -66,7 +66,7 @@ The `onSubmit` method had an interesting bit of code.
 const timestamp = +new Date(this.state.date)
 ```
 
-Apparently passing the `datetime-local` value to `new Date` wasn't enough to convert the value to a timestamp value however, all it ended up needing was a +. Not entirely sure what this does, I'll need to look into it a bit more for sure. 
+Apparently passing the `datetime-local` value to `new Date` wasn't enough to convert the value to a timestamp value, however, all it ended up needing was a +. Not entirely sure what this does, I'll need to look into it a bit more for sure. 
 
 ## Hacky CRON time
 
