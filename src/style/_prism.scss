@@ -57,7 +57,8 @@
 }
 
 .blog-content {
-  p > code {
+  p > code,
+  li > code {
     background: $border-color;
     padding: .1rem .5rem;
     color: $content-color;
