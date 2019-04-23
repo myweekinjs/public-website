@@ -44,17 +44,17 @@ import React, { Component } from "react"
 import AppContext from "./AppContext"
 
 export default class AppProvider extends Component {
-    state = {
-        globalErrors: null
-    }
+  state = {
+    globalErrors: null
+  }
 
-    render() {
-        return (
-            <AppContext.Provider value={{...this.state}}>
-                { this.props.children }
-            </AppContext.Provider>
-        )
-    }
+  render() {
+    return (
+      <AppContext.Provider value={{...this.state}}>
+        { this.props.children }
+      </AppContext.Provider>
+    )
+  }
 }
 ```
 
@@ -65,15 +65,15 @@ At this point, you would wrap your global App component in the `<AppProvider>` c
 import AppContext from "./AppContext"
 
 class ErrorBar extends Component {
-    render() {
-        return (
-            <AppContext.Consumer>
-                {context => (
-                    renderErrors(context.globalErrors)
-                )}
-            </AppContext.Consumer>
-        )
-    }
+  render() {
+    return (
+      <AppContext.Consumer>
+        {context => (
+          renderErrors(context.globalErrors)
+        )}
+      </AppContext.Consumer>
+    )
+  }
 }
 ```
 
@@ -84,9 +84,9 @@ import React, { useContext } from "react"
 import AppContext from "./AppContext"
 
 const Errors = () => {
-    const errors = useContext(AppContext)
+  const errors = useContext(AppContext)
 
-    return renderErrors(errors.globalErrors)
+  return renderErrors(errors.globalErrors)
 }
 ```
 
