@@ -1,7 +1,7 @@
 ---
 path: "/notekeeper"
 date: 2019-04-23T12:00:00.000Z
-title: "Keeping your notes in one place"
+title: "Keeping Your Notes in One Place"
 keywords: firebase,markdown editor,create react app,react,firebase hosting,markdown,notekeeper
 resources:
 - create-react-app %% https://github.com/facebook/create-react-app
@@ -9,19 +9,19 @@ resources:
 - Context API %% https://reactjs.org/docs/context.html
 ---
 
-Writing markdown files in your code editor can get a little annoying sometimes, and having to make sure that I don't accidentally push the article live before it is ready can also be frustrating. These were some of the reason I chose to write my own markdown editor online. **Note** these aren't a good reason and are easily avoidable but we'll run with it.
+Writing markdown files in your code editor can get a little annoying sometimes, and having to make sure that I don't accidentally push the article live before it is ready can also be frustrating. These were some of the reasons I chose to write my own markdown editor online. **Note**, these aren't a good reason and are easily avoidable, but we'll run with it.
 
 > The code and be found on [Github](https://github.com/myweekinjs/notekeeper)
 
 ## The Tech
 
-Like with many previous weeks, I am using Firebase for all my authentication and data storing. However, I am using [create-react-app](https://github.com/facebook/create-react-app) for the frontend. I am also using [emotion](https://emotion.sh) for all my styling, which I have really grown to love over the past few weeks.
+Similar to previous weeks, I am using Firebase for all my authentication and data storing. However, I am using [create-react-app](https://github.com/facebook/create-react-app) for the front end. I am also using [emotion](https://emotion.sh) for all my styling, which I have really grown to love over the past few weeks.
 
 > The final product can be viewed [here](https://notekeeper-e0386.firebaseapp.com/)
 
 ### Disclaimer
 
-Before I continue, this was actually built in 1 day so, I recommend playing around a bit but not using it to actually save information. I will probably wipe the database at some point because I wrote a delete query wrong.
+Before I continue, this was actually built in one day, so, I recommend playing around a bit but not using it to actually save information. I will probably wipe the database at some point because I wrote a delete query wrong.
 
 ## The interesting parts
 

@@ -1,7 +1,7 @@
 ---
 path: "/actions-with-google"
 date: 2019-03-25T12:00:00.000Z
-title: "Google actions in Actions"
+title: "Google Actions in Actions"
 keywords: google actions,react hooks,intent creation,dialogflow
 resources:
 - Creating Actions %% https://developers.google.com/actions/dialogflow/project-agent

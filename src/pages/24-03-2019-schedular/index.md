@@ -1,7 +1,7 @@
 ---
 path: "/schedular"
 date: 2019-03-31T12:00:00.000Z
-title: "Schedualing your social interactions"
+title: "Scheduling Your Social Interactions"
 keywords: twitter,firebase,authentication,cloud functions,react app,nextjs,cron
 resources:
 - Custom <App> %% https://nextjs.org/docs/#custom-app
@@ -15,11 +15,13 @@ This week I decided to build a "Twitter post scheduler" to try and reach a diffe
 
 ## Discovery
 
-Initially, I wanted to use Cloud Scheduler for this, which is essentially Google's version of CRON jobs. However, that costs money and I ain't about that paying life... coffee is too expensive for that. So overcoming this was the first problem. Luckily for me, I build a twitter bot in early 2018 that I launched on Heroku on a free dino. The bot is set to do something every 30 minutes meaning it is never put to sleep. **HACKERMAN!** (I wish I had gifs in my posts) I am planning on using a similar approach here, although it might not be as accurate as CRON jobs, I really don't need it to be.
+Initially, I wanted to use Cloud Scheduler for this, which is essentially Google's version of CRON jobs. However, that costs money and I ain't about that paying life... coffee is too expensive for that. So overcoming this was the first problem. Luckily for me, I built a twitter bot in early 2018 that I launched on Heroku on a free dino. The bot is set to do something every 30 minutes meaning it is never put to sleep. **HACKERMAN!** (I wish I had gifs in my posts) I am planning on using a similar approach here. Although, it might not be as accurate as CRON jobs, I really don't need it to be.
 
 ## Setup
 
-This project is split into two parts; `cronish` and `fe`. `cronish` is what will be deployed on Heroku and will handle all the twitter posting. `fe` is a nextjs app that will give me a "self-hosted" front end app that I can use to schedule my posts. The posts will be added to a Firebase database. When `cronish` runs, it will pull in the data and filter through the posts for where the date is in the past, and then post them. Not very elegant but hey, I have less than a week to build this. I also decided to use `react-bootstrap` for all the UI work in order to save some time.
+This project is split into two parts, `cronish` and `fe`.
+
+`cronish` will be deployed on Heroku and will handle all the twitter posting. `fe` is a nextjs app that will give me a "self-hosted" front end app that I can use to schedule my posts. The posts will be added to a Firebase database. When a `cronish` event runs, it will pull in the data from Firebase and filter through the posts that can be tweeted, and then post them. Not very elegant but hey, I have less than a week to build this. I also decided to use `react-bootstrap` for all the UI work in order to save some time.
 
 ## FE
 
@@ -35,7 +37,7 @@ const Home = ({ isAuth }) => (
 )
 ```
 
-How is the `isAuth` *prop* defined? In my personal opinion, probably not very well **BUT** we'll think of a better way next time.
+How is the `isAuth` *prop* defined? In my personal opinion, probably not very well **BUT** I'll think of a better way next time.
 
 ```javascript
 // _app.js
@@ -56,9 +58,9 @@ This `authListener` method will listen for changes in the authentication state a
 
 ### Start Scheduling
 
-The `<Dashboard />` I had in the code example above consists of two components; `CreateTweet` and `ScheduleTweets`. `ScheduleTweets` is similar to the `stats` page component I talked about [last week](/actions-with-google). The `CreateTweet` component, however, has a few cool things happening.
+The `<Dashboard />` I had in the code example above consists of two components, `CreateTweet` and `ScheduleTweets`. `ScheduleTweets` is similar to the `stats` page component I talked about [last week](/actions-with-google). The `CreateTweet` component, however, has a few cool things happening.
 
-The `CreateTweet` component has the form that is used to schedule your tweets. The two main parts here is the `datetime-local` input field and the `onSubmit` method for the form. The `datetime-local` field allowed me to enter a date similar to `1/04/2019 16:33 pm`, this made it very easy to schedule posts when I need it and it beat any date select component that I was trying to use. I did have to find a way to set the default date for the field since `new Date` wasn't enough or in the correct format, small hickup but didn't slow me down too much.
+The `CreateTweet` component has the form that is used to schedule your tweets. The two main parts here is the `datetime-local` input field and the `onSubmit` method for the form. The `datetime-local` field allowed me to enter a date similar to `1/04/2019 16:33 pm`, this made it very easy to schedule posts when I need it and it was better than the other date select component that I was trying to use. I did have to find a way to set the default date for the field since `new Date` wasn't enough or in the correct format; small hickup but didn't slow me down too much.
 
 The `onSubmit` method had an interesting bit of code.
 
@@ -66,11 +68,11 @@ The `onSubmit` method had an interesting bit of code.
 const timestamp = +new Date(this.state.date)
 ```
 
-Apparently passing the `datetime-local` value to `new Date` wasn't enough to convert the value to a timestamp value, however, all it ended up needing was a +. Not entirely sure what this does, I'll need to look into it a bit more for sure. 
+Apparently passing the `datetime-local` value to `new Date` wasn't enough to convert the value to a timestamp value, however, all it ended up needing was a +. Not entirely sure what this does, I'll need to look into it more to know for sure.
 
 ## Hacky CRON time
 
-This is what I would call an "I have about 1 hour, let's build a CRON job" CRON job. The `cronish` folder has one main file and one main method; `index.js` & `scheduler`. The scheduler fetches all the posts for a user, loops and checks if the post is in the past and posts a status update to Twitter. The full method for this can be found [here](https://github.com/myweekinjs/post-schedular/blob/master/cronish/index.js).
+This is what I would call an "I have about 1 hour, let's build a CRON job" CRON job. The `cronish` folder has one main file and one main method, `index.js` & `scheduler`. The scheduler fetches all the posts for a user, loops and checks if the post is in the past and posts a status update to Twitter. The full method for this can be found [here](https://github.com/myweekinjs/post-schedular/blob/master/cronish/index.js).
 
 ```javascript
 databaseRef.once('value')
@@ -92,7 +94,7 @@ setInterval(schedular, 1800000)
 
 ## Heroku gotchas
 
-Because I am using the `firebase-admin` package, I needed to pass a `privateKey` value to the initialise method. However, the one you get from Firebase won't work out of the box. Here is an example of what the key will look like;
+Due to using I am using the `firebase-admin` package, I needed to pass a `privateKey` value to the `initializeApp` method. However, the one you get from Firebase won't work out of the box. Here is an example of what the key will look like;
 
 ```javascript
 "-----BEGIN PRIVATE KEY-----\nyoursecret\nkey-data\n8a8d8dS*SSHJJAS*8s8\n-----END PRIVATE KEY-----\n"
@@ -110,6 +112,6 @@ key-data
 
 ## Improvements
 
-Boy, there are a lot! I have to confess I had about 6 hours in total to work on this project this week, so the quality isn't that great. My first improvement would be with the front end portion of the site. Customising the theme slightly would go a long way, also some more error checking to ensure that you are scheduling posts for the future and not for the past. Making the CRON job a proper CRON job would also be a good improvement to increase the accuracy of the Tweets. And finally adding additional methods, such as LinkedIn, Instagram or Facebook post to make it a worthwhile product to use. However, given the timeframe, I think this is a good base to build those things on top of.
+Boy, there are a lot! I have to confess I had about 6 hours in total to work on this project this week, so the quality isn't that great. My first improvement would be to the front end portion of the site. Customising the theme slightly would go a long way, also some more error checking to ensure that you are scheduling posts for the future and not for the past. Making the CRON job a proper CRON job would also be a good improvement to increase the accuracy of the Tweets. And finally adding additional methods, such as LinkedIn, Instagram or Facebook posts to make it a worthwhile product to use. However, given the timeframe, I think this is a good base to build those things on top of.
 
 ### 👋 until next time!

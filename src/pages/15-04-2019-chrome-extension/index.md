@@ -8,17 +8,17 @@ resources:
 - Mutation Observers %% https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
 ---
 
-This week I set out to create a chrome extension and utilise JavaScript + React to inject a component into a website. The result is a beautiful combination of Mutation Observers and JavaScript goodness!
+This week I set out to create a chrome extension and utilise JavaScript and React to inject a component into a website. The result is a beautiful combination of Mutation Observers and JavaScript goodness!
 
 > The code can be found on [Github](https://github.com/myweekinjs/chrome-extension-w-react)
 
 ## Lets get ready!
 
-To start, I downloaded a starter for a chrome extension from the [Chrome Developer](https://developer.chrome.com/extensions/getstarted) website. If you want to learn the basics of Extension development I definitely recommend looking at the website. I immediately deleted the `options.js`, `options.html`, and `popup.js` files. In the `manifest.json` file I removed the `options_page` key as well as the `storage` value from the `permissions` array. Next, you want to add `https://www.myweekinjs.com/` to the `permissions` array.
+To start, I downloaded a starter for a chrome extension from the [Chrome Developer](https://developer.chrome.com/extensions/getstarted) website. If you want to learn the basics of extension development, I definitely recommend looking at the website. I immediately deleted the `options.js`, `options.html`, and `popup.js` files. In the `manifest.json` file I removed the `options_page` key as well as the `storage` value from the `permissions` array. Next, you want to add `https://www.myweekinjs.com/` to the `permissions` array.
 
-I will be referencing *myweekinjs* a few times, this could be any website that you wish you inject a React component into.
+I will be referencing *myweekinjs* a few times, this could be any website that you wish to inject a React component into.
 
-Next, I created an `app.js` with a simple `console.log` to test that script works, and updated the `background.js` to;
+Next, I created an `app.js` with a simple `console.log` to test that the script works, and updated the `background.js` to;
 
 ```javascript
 chrome.runtime.onInstalled.addListener(function() {
@@ -50,7 +50,7 @@ Alright! That was a lot! The `background.js` script will do the following;
 
 Follow these [steps](https://developer.chrome.com/extensions/getstarted#manifest) to load your extension for testing purposes.
 
-## Lets get scripting!
+## Let's get scripting!
 
 Next step is to create our `webpack.config.js` file to compile our React and Javascript. At this point, I'd recommend creating a *dist* folder with the current files (minus the `app.js`), and unpacking that folder as our extension. This way you can compile into this *dist* folder and won't include your *node_modules* into the extension.
 
@@ -58,7 +58,7 @@ Next step is to create our `webpack.config.js` file to compile our React and Jav
 
 1. Open the resource ^
 2. Check React, Babel. Uncheck React hot loader
-3. Run `npm init -y` and install the packages outlined by the resource 
+3. Run `npm init -y` and install the packages outlined by the resource
 4. Copy the `webpack.config.js` and `.babelrc` files into your project
 5. Copy the `scripts` from the `package.json`
 
@@ -85,7 +85,7 @@ You might have some syntax issues with the `.babelrc`, they should be easy to fi
 
 Running the `build-prod` script will compile the `app.js` file. After a unpack and reload, you should be greeted with the same `console.log` as before. A long process to get where we were, but now things get interesting!
 
-## Lets get appy!
+## Let's get appy!
 
 We want our app to do a few things;
 

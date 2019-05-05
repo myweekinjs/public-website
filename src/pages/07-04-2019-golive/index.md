@@ -1,17 +1,17 @@
 ---
 path: "/golive"
 date: 2019-04-07T12:00:00.000Z
-title: "Going live checklist"
+title: "Going Live Checklist"
 keywords: react,checkboxes,go live,checklist
 ---
 
-Ever wanted a small checklist with some generic items that you should do before making a website live? Well here it is! 
+Ever wanted a small checklist with some generic items that you should do before making a website live? Well here it is!
 
 > The code can be found on [Github](https://github.com/myweekinjs/golive)
 
 > Visit the [golive](https://golive.hurricaneinteractive.now.sh/) website
 
-The project this week uses [Nextjs](https://nextjs.org) and [Emotion](https://emotion.sh/docs/introduction). Emotion is a library to write your CSS inside your JavaScript files. This is my first time using Emotion and I have to say, I am definitely going to keep using it. It makes setting up projects super quick, and easy to create usualable components for consistency throughout your project. One of the main elements for this project was the `<Checkbox />` which I was able to give a cool *checked* styling.
+The project this week uses [Nextjs](https://nextjs.org) and [Emotion](https://emotion.sh/docs/introduction). Emotion is a library to write your CSS inside your JavaScript files. This is my first time using Emotion and I have to say, I am definitely going to keep using it. It makes setting up projects super quick, and easy to create reusable components for consistency throughout your project. One of the main elements for this project was the `<Checkbox />`, which I was able to give a cool *checked* styling.
 
 ```javascript
 /** @jsx jsx */
@@ -41,7 +41,7 @@ const Checkbox = (props) => (
 )
 ```
 
-Something to noted here is the `/** @jsx jsx */` line. This tells babel to use the Emotion *jsx* method instead of the React *jsx* method. Pretty sweet!
+Something to note here is the `/** @jsx jsx */` line. This tells [Babel](https://babeljs.io/) to use the Emotion *jsx* method instead of the React *jsx* method. Pretty sweet!
 
 ## The Checklist
 
