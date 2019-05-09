@@ -12,6 +12,9 @@ const IndexPage = (props) => {
   return (
     <Layout ishome={ uri === '/' ? true : false }>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <div className="welcome-message">
+        <p><span role="img" aria-label="waving hand">👋</span> Hello everyone. There has unfortunately been a lack of content over the past few weeks due to Easter and the fact I am currently sick. I'll hopefully get back into writing articles soon. In the meantime, check out this <a href="https://www.npmjs.com/package/eslint-config-myweekinjs" target="_blank" rel="noopener noreferrer">eslint-config</a> plugin I made which I will most likely talk about in my next article. Until then!</p>
+      </div>
       <div className="blog-posts">
         {
           posts.filter(post => post.node.frontmatter.title.length > 0).map(({ node: post }) => (
