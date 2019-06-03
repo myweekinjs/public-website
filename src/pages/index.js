@@ -13,7 +13,11 @@ const IndexPage = (props) => {
     <Layout ishome={ uri === '/' ? true : false }>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <div className="welcome-message">
-        <p><span role="img" aria-label="waving hand">👋</span> Hello everyone. There has unfortunately been a lack of content over the past few weeks due to Easter and the fact I am currently sick. I'll hopefully get back into writing articles soon. In the meantime, check out this <a href="https://www.npmjs.com/package/eslint-config-myweekinjs" target="_blank" rel="noopener noreferrer">eslint-config</a> plugin I made which I will most likely talk about in my next article. Until then!</p>
+        <p><span role="img" aria-label="waving hand">👋</span> Hello everyone. Welcome to #myweekinjs! This is a personal challenge to build or learn something new in JavaScript each week (Ignore the month gap 😬).</p>
+      </div>
+      <div className="personal-links">
+        <a href="https://github.com/HurricaneInteractive" target="_blank" rel="noopener noreferrer" className="btn">Github</a>
+        <a href="https://dev.to/hurricaneinteractive" target="_blank" rel="noopener noreferrer" className="btn">Dev.to</a>
       </div>
       <div className="blog-posts">
         {
